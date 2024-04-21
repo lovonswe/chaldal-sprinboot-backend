@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,7 @@ public class User {
     private String name;
     private String phone;
     private String email;
-    private String createdAt;
+    private Date createdAt;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //owining side of the mapping
     @JoinColumn(name = "address_id")
     @JsonBackReference

@@ -25,8 +25,7 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Enumerated(EnumType.STRING)
-    private UserRole name;
+    private String name;
     @ManyToMany(mappedBy = "roles")
     @JsonManagedReference
     private List<User> users;
