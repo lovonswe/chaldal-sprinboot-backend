@@ -27,10 +27,8 @@ public class UserService {
         Address address = new Address();
 
         User user = new User();
-        user.setName(userDetails.getName());
-        user.setPhone(userDetails.getPhone());
-        user.setEmail(userDetails.getEmail());
-        user.setCreatedAt(new Date());
+
+        return user;
 
     }
 }
