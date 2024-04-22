@@ -1,5 +1,6 @@
 package com.example.chaldalbackendspringboot.service;
 
+import com.example.chaldalbackendspringboot.auth.config.SecurityConfig;
 import com.example.chaldalbackendspringboot.dto.UserDetailsDto;
 import com.example.chaldalbackendspringboot.model.Address;
 import com.example.chaldalbackendspringboot.model.User;
@@ -17,9 +18,12 @@ import java.util.Date;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private SecurityConfig securityConfig;
 
     public ResponseEntity<User> addNewUser(@RequestBody UserDetailsDto userDetails) {
         User user = mapUserDetailsDtoToUser(userDetails);
+        user.setPassword(securityConfig.passwordEncoder().encode(user.getPassword()));
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 

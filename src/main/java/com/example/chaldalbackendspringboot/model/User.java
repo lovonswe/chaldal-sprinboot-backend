@@ -32,6 +32,7 @@ public class User {
     private String phone;
     private String email;
     private Date createdAt;
+    private String password;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) //owining side of the mapping
     @JoinColumn(name = "address_id")
     @JsonBackReference
