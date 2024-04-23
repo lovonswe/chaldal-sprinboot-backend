@@ -1,5 +1,4 @@
 package com.example.chaldalbackendspringboot.model;
-import com.example.chaldalbackendspringboot.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -18,7 +17,7 @@ public class SubCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL) //default fetchtype lazy
+    @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //default fetchtype lazy
     @JsonManagedReference
     private List<SubSubCategory> subSubCategories;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
